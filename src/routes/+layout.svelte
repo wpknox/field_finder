@@ -6,7 +6,7 @@
 	<nav class="navbar bg-base-100 text-primary-content border-b">
 		<div class="flex-1 gap-2">
 			<a href="/" class="btn btn-ghost normal-case text-xl">Field Finder</a>
-			<a href="/about" class="link link-hover normal-case ml-2">About</a>
+			<a href="/about" class="link link-hover normal-case ml-2 ms-auto mr-4">About</a>
 		</div>
 	</nav>
 
