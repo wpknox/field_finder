@@ -2,6 +2,10 @@
 	import '../app.postcss';
 </script>
 
+<svelte:head>
+	<title>Field Finder</title>
+</svelte:head>
+
 <div class="min-h-full px-4">
 	<nav class="navbar bg-base-100 text-primary-content border-b">
 		<div class="flex-1 gap-2">
@@ -11,7 +15,7 @@
 	</nav>
 
 	<div class="py-4">
-		<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+		<div class="mx-auto max-w-full sm:px-6 lg:px-8">
 			<slot />
 		</div>
 	</div>
