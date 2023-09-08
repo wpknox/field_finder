@@ -1,2 +1,3 @@
 import FieldSummary from './FieldSummary.svelte';
-export { FieldSummary };
+import Map from './Map.svelte';
+export { FieldSummary, Map };

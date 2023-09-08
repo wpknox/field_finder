@@ -1,16 +1,24 @@
 <script lang="ts">
-	import { FieldSummary } from '$lib/components';
-	import { SELECTED_FIELDS } from '$lib/utils';
+	import { FieldSummary, Map } from '$lib/components';
+	import { SELECTED_FIELDS, type LatLong } from '$lib/utils';
 
 	const radiusMax: number = 25;
 	let radius: number = 5;
 	let fieldTypes = ['Wheat', 'Sorgum', 'Sunflowers', 'Corn'];
 	let selectedFields: string[] = [];
+	let latitude: LatLong = {
+		value: 39.8283,
+		direciton: 'N'
+	};
+	let longitude: LatLong = {
+		value: 20,
+		direciton: 'W'
+	};
 </script>
 
 <h1 class="text-6xl font-bold text-primary underline text-center">Search for Fields</h1>
 
-<div class="flex flex-row p-4 w-full h-full content-center mt-2">
+<div class="flex flex-row p-4 w-full h-full mt-2">
 	<form method="POST" class="flex flex-col max-w-sm p-4 divide-y space-y-4">
 		<div class="form-control">
 			<span class="font-bold">Fields to Find</span>
@@ -51,7 +59,7 @@
 					type="number"
 					class="input input-ghost ms-auto text-right"
 					name="latitude"
-					value="39.8283"
+					value={latitude.value}
 					readonly
 				/>
 			</div>
@@ -61,7 +69,7 @@
 					type="number"
 					class="input input-ghost ms-auto text-right"
 					name="longitude"
-					value="98.5795"
+					value={longitude.value}
 					readonly
 				/>
 			</div>
@@ -71,7 +79,9 @@
 			<!-- <button type="button" class="btn bg-base-300 ms-auto me-1">Reset</button> -->
 		</div>
 	</form>
-	<div class="mx-2 w-full min-h-max shadow-md">I am the map content</div>
+	<div class="mx-2 w-full min-h-max shadow-md">
+		<Map zoom={12} {latitude} {longitude} />
+	</div>
 	<div class="flex flex-col divide-y max-w-sm w-1/4 p-4">
 		{#each { length: 5 } as _}
 			<FieldSummary />
