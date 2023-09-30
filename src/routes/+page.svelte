@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { FieldSummary, Map } from '$lib/components';
+	import { FieldSummary } from '$lib/components';
 	import { SELECTED_FIELDS, type LatLong } from '$lib/utils';
 
+	const fieldTypes = ['Wheat', 'Sorgum', 'Sunflowers', 'Corn'];
 	const radiusMax: number = 25;
 	let radius: number = 5;
-	let fieldTypes = ['Wheat', 'Sorgum', 'Sunflowers', 'Corn'];
 	let selectedFields: string[] = [];
 	let latitude: LatLong = {
 		value: 39.8283,
@@ -14,6 +14,7 @@
 		value: 20,
 		direciton: 'W'
 	};
+	let zoom = 10;
 </script>
 
 <h1 class="text-6xl font-bold text-primary underline text-center">Search for Fields</h1>
@@ -80,7 +81,7 @@
 		</div>
 	</form>
 	<div class="mx-2 w-full min-h-max shadow-md">
-		<Map zoom={12} {latitude} {longitude} />
+		<!-- <MapLibre {zoom} {latitude} {longitude} /> -->
 	</div>
 	<div class="flex flex-col divide-y max-w-sm w-1/4 p-4">
 		{#each { length: 5 } as _}
